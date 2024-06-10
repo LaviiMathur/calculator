@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+    <script
+      src="https://kit.fontawesome.com/c190e74c98.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="darkMode">
+      <label for="darkMode" class="toggle">
+        <input type="checkbox" checked name="darkMode" id="darkMode" />
+
+        <div class="toggleBtn">
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-regular fa-moon"></i>
+        </div>
+      </label>
+    </div>
+    <div class="container">
+      <div id="screenSection">
+        <input type="text" id="screen" placeholder="0" readonly />
+        <input class="btn" id="aclr" type="button" value="AC" />
+      </div>
+      <form id="keySection" action="/input" method="post">
+        <input class="btn" type="button" value="7" />
+        <input class="btn" type="button" value="8" />
+        <input class="btn" type="button" value="9" />
+        <input class="btn oprater" type="button" value="&divide;" />
+        <input class="btn" type="button" value="6" />
+        <input class="btn" type="button" value="5" />
+        <input class="btn" type="button" value="4" />
+        <input class="btn oprater" type="button" value="&times;" />
+        <input class="btn" type="button" value="3" />
+        <input class="btn" type="button" value="2" />
+        <input class="btn" type="button" value="1" />
+        <input class="btn oprater" type="button" value="-" />
+        <input class="btn" type="button" value="." />
+        <input class="btn" type="button" value="0" />
+        <input class="btn oprater" id="equal" type="button" value="=" />
+        <input class="btn oprater" type="button" value="+" />
+      </form>
+    </div>
+  </body>
+  <script>
+    document.getElementById("darkMode").addEventListener("change", function () {
+      if (this.checked) {
+        document.body.style.backgroundColor = "#313131";
+        document.querySelector(".container").style.backgroundColor = "#292929";
+        document.querySelectorAll(".btn").forEach(function (btn) {
+          btn.style.backgroundColor = "#131313";
+          btn.style.color = "#bdbdbd";
+          btn.style.borderColor = "#bdbdbd";
+        });
+      } else {
+        document.body.style.backgroundColor = "white";
+        document.querySelector(".container").style.backgroundColor = "#b6b6b6";
+        document.querySelectorAll(".btn").forEach(function (btn) {
+          btn.style.backgroundColor = "#217C7E";
+          btn.style.color = "black";
+          btn.style.borderColor = "#bdbdbd";
+        });
+      }
+      document.querySelectorAll(".oprater").forEach(function (btn) {
+        btn.style.backgroundColor = "#ff8f1f";
+        btn.style.color = "#131313";
+      });
+      document.getElementById("equal").style.backgroundColor = "#ff6200";
+    });
+  </script>
+  <script src="/script.js"></script>
+</html>
